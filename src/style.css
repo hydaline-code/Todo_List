@@ -1,0 +1,117 @@
+body {
+  background: rgb(242, 244, 246);
+}
+
+.main {
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5vw;
+  font-family: sans-serif;
+  background: linear-gradient(to right, rgba(255, 215, 255, 0) 0%, rgba(225, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 61%), linear-gradient(rgb(97, 183, 217) 52%, rgb(224, 246, 255) 60%, rgb(78, 99, 132) 61%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  background: linear-gradient(to left, rgba(170, 136, 170, 0) 20%, rgba(136, 184, 184, 0.5) 60%, rgba(199, 142, 142, 0) 90%);
+  background-clip: border-box;
+  color: rgb(127, 127, 255);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem 0 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.refresh {
+  margin: 1.5rem 0.5rem 0 0;
+}
+
+.fa-rotate,
+.icon-return {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.list {
+  position: relative;
+}
+
+/* #add-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+} */
+
+/* #add-item .addtask {
+  list-style: none;
+  margin-right: 1rem;
+} */
+
+form {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.addtask button {
+  border: none;
+  padding: 0;
+  background: none;
+  padding-right: 2rem;
+}
+
+input[type=text],
+textarea {
+  padding: 8px 5px;
+  border: none;
+  line-height: 20px;
+  height: 20px;
+  width: 100%;
+  background: inherit;
+}
+
+input[type=text]:focus {
+  outline: none;
+  background: gainsboro;
+}
+
+.cleardone {
+  width: 100%;
+  height: 4vw;
+  border: none;
+  background: rgb(213, 212, 212);
+  margin: 0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#item-list li {
+  list-style: none;
+  margin-left: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 0 0.5rem;
+}
+
+label::after {
+  content: "\2807";
+  height: 1rem;
+  font-size: 1.5rem;
+  position: relative;
+  top: 0.2rem;
+  margin-left: calc(90% - 20px);
+}
+
+@media (max-width: 768px) {
+  label::after {
+    margin-left: calc(80% - 40px);
+  }
+}
