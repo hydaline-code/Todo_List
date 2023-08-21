@@ -31,8 +31,7 @@ function taskList() {
     const afterElement = document.createElement('span');
     afterElement.className = 'dot-icon';
     label.appendChild(afterElement);
-  
-  
+
     afterElement.addEventListener('click', () => {
       afterElement.style.display = 'none';
       const iconContainer = document.createElement('div');
@@ -44,42 +43,38 @@ function taskList() {
       iconContainer.appendChild(editButton);
 
       editButton.addEventListener('click', () => {
-        const currentTask = task; 
+        const currentTask = task;
 
         iconContainer.style.display = 'none';
         const input = document.createElement('input');
-        //input.type = 'text';
+        // input.type = 'text';
         input.value = task.description;
         input.classList.add('edit-input');
         listItem.replaceChild(input, label);
 
         input.addEventListener('blur', () => {
-          currentTask.description = input.value; 
+          currentTask.description = input.value;
           label.textContent = input.value;
           listItem.replaceChild(label, input);
 
-         const afterElement = document.createElement('span');
-         afterElement.className = 'dot-icon';
-         label.appendChild(afterElement);
-        
+          const afterElement = document.createElement('span');
+          afterElement.className = 'dot-icon';
+          label.appendChild(afterElement);
         });
         input.focus();
       });
-     
+
       const deleteButton = document.createElement('button');
       deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
       deleteButton.classList.add('del');
       deleteButton.addEventListener('click', () => {
         deleteTask(index);
-        
       });
       iconContainer.appendChild(deleteButton);
-
     });
 
     taskList.appendChild(listItem);
   });
-  
 }
 
 function addTask(description) {

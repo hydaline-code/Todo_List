@@ -94,7 +94,6 @@ input[type=text]:focus {
   position: relative;
 }
 
-
 label .dot-icon::after {
   content: "\2807";
   font-size: 1.5rem;
