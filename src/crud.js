@@ -54,7 +54,6 @@ function taskList() {
         listItem.replaceChild(input, label);
 
         input.addEventListener('blur', () => {
-        
           currentTask.description = input.value; 
           label.textContent = input.value;
           listItem.replaceChild(label, input);
