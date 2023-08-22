@@ -1,6 +1,6 @@
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { addCheckboxEventListener } from './interactivity.js';
+import { addCheckboxEventListener } from './module/interactivity.js';
 
 let tasks = [];
 
@@ -14,7 +14,7 @@ function updateIndexes() {
   });
 }
 
-function taskList() {
+export default function taskList() {
   const taskList = document.getElementById('item-list');
   taskList.innerHTML = '';
 
@@ -43,7 +43,6 @@ function taskList() {
       editButton.classList.add('fa-editb');
       iconContainer.appendChild(editButton);
 
-
       editButton.addEventListener('click', () => {
         const currentTask = task;
 
@@ -58,16 +57,13 @@ function taskList() {
           currentTask.description = input.value;
           label.textContent = input.value;
           listItem.replaceChild(label, input);
-         
 
           const afterElement = document.createElement('span');
           afterElement.className = 'dot-icon';
           label.appendChild(afterElement);
         });
         input.focus();
-       
       });
-
 
       const deleteButton = document.createElement('button');
       deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
@@ -83,8 +79,6 @@ function taskList() {
     taskList.appendChild(listItem);
   });
 }
-
-
 
 function addTask(description) {
   const newTask = {
@@ -124,8 +118,6 @@ clearButton.addEventListener('click', () => {
   taskList();
 });
 
-
-
 function loadTasks() {
   const storedTasks = localStorage.getItem('tasks');
   if (storedTasks) {
@@ -138,5 +130,5 @@ const addButton = document.getElementById('add-button');
 addButton.addEventListener('click', addTaskClick);
 
 export {
-  addTask, taskList, loadTasks, updateStorage, updateIndexes
+  addTask, loadTasks, updateStorage, updateIndexes,
 };
