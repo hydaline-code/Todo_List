@@ -1,5 +1,6 @@
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import { addCheckboxEventListener } from './module/interactivity.js';
 
 let tasks = [];
 
@@ -13,7 +14,7 @@ function updateIndexes() {
   });
 }
 
-function taskList() {
+export default function taskList() {
   const taskList = document.getElementById('item-list');
   taskList.innerHTML = '';
 
@@ -73,6 +74,8 @@ function taskList() {
       iconContainer.appendChild(deleteButton);
     });
 
+    addCheckboxEventListener(checkbox, task, label);
+
     taskList.appendChild(listItem);
   });
 }
@@ -107,6 +110,14 @@ function addTaskClick(event) {
   }
 }
 
+const clearButton = document.querySelector('.cleardone');
+clearButton.addEventListener('click', () => {
+  tasks = tasks.filter((task) => !task.completed);
+  updateIndexes();
+  updateStorage();
+  taskList();
+});
+
 function loadTasks() {
   const storedTasks = localStorage.getItem('tasks');
   if (storedTasks) {
@@ -119,5 +130,5 @@ const addButton = document.getElementById('add-button');
 addButton.addEventListener('click', addTaskClick);
 
 export {
-  addTask, taskList, loadTasks, updateStorage,
+  addTask, loadTasks, updateStorage, updateIndexes,
 };

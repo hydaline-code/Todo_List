@@ -13,8 +13,6 @@ reloadIcon.addEventListener('click', () => {
   Reload();
 });
 
-// window.addEventListener('load', taskList);
-
 document.addEventListener('DOMContentLoaded', () => {
   loadTasks();
 });
